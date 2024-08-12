@@ -47,3 +47,4 @@ both_info = person2.items()
 print(both_info)
 print(type(both_info))
 
+print(both_info[2])
