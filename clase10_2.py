@@ -1,22 +1,3 @@
-#TUPLAS, Son inmutables por lo que significa que no las podemos modificar
-numbers = (1,2,3,4,5)
-print(numbers)
-print(type(numbers))
-
-#Accediendo a la informacion de la tuplas
-print(numbers[0])
-print(numbers[0:2])
-
-#La alternativa para poder modificar las tuplas es guardarlas sin los parantesis 
-
-new_numbers = 1,2,3,4,5
-print(numbers)
-print(type(numbers)) #Se sigue manteniendo como tipo Tupla
-
-new_numbers[0] = "uno"
-print(new_numbers)
-
-
 #Tuplas en Python
 #Tuplas: Las tuplas son una colección ordenada e inmutable de elementos en Python. Una vez creadas, no pueden ser modificadas (no se pueden agregar, eliminar o cambiar sus elementos).
 #Ejemplo de Tupla
