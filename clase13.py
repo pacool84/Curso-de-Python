@@ -31,3 +31,30 @@ for alimento in alimentos:
     print(f"Cuida tu alimentación, no consumas tanta {alimento}")
   else:
     print("Continua comiendo frutas y verduras: ", alimento)
+    
+#Iterar por medio de una "condicion" / WHILE
+
+x = 0
+while x <= 10:
+  print(x)
+  x += 1
+
+#Utilizando la opcion de BREAK
+#BREAK lo utilizamos para poder interrumpir una interacion o un ciclo // Interrumpimos el codigo
+
+y = 0
+while y <= 100:
+  if y == 77:
+    break
+  print(y)
+  y += 1
+  
+#Situaciones en donde no queremos terminar el codigo pero queremos saltar u omitir el paso que queremos evaluar
+#Utilizando CONTINUE
+
+new_numbers = [1,2,3,4,5,6]
+
+for i in new_numbers:
+  if i == 4:
+    continue
+  print(i) #No se imprime el numero 4
