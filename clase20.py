@@ -91,7 +91,7 @@ class Customer():
       
     print(f"El vehiculo {vehicle.brand} esta como {availability} y cuesta {vehicle.get_price()}")
 
-class DealerShip():
+class Dealership():
   def __init__(self):
     self.inventory = []
     self.customers = []
@@ -109,3 +109,34 @@ class DealerShip():
     for vehicle in self.inventory:
       if vehicle.check_available():
         print(f"El vehiculo {vehicle.brand} por {vehicle.get_price()}")
+        
+        
+# Crear instancias de coches
+car1 = Car("Toyota", "Corolla", 20000)
+car2 = Car("Honda", "Civic", 22000)
+car3 = Car("Ford", "Mustang", 35000)
+
+# Crear instancia de cliente
+customer1 = Customer("Carlos")
+
+# Crear instancia de concesionaria y registrar coches y clientes
+dealership = Dealership()
+dealership.add_vehicles(car1)
+dealership.add_vehicles(car2)
+dealership.add_vehicles(car3)
+dealership.register_customers(customer1)
+
+# Mostrar coches disponibles
+dealership.show_available_vehicles()
+
+# Cliente consulta un coche
+customer1.inquire_vehicle(car1)
+
+# Cliente compra un coche
+customer1.buy_vehicle(car1)
+
+# Mostrar coches disponibles nuevamente
+dealership.show_available_vehicles()
+
+# Cliente intenta comprar un coche ya vendido
+customer1.buy_vehicle(car1)
