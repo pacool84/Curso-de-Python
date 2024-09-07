@@ -11,8 +11,8 @@ class Vehicle:
 
   def sell(self):
     if self.is_available:
-      self.is_available = False
-      print(f"El vehiculo {self.brand} ha sido vendido $$$ ")
+        self.is_available = False
+        print(f"El vehiculo {self.brand} ha sido vendido $$$ ")
     else:
       print(f"El vehiculo {self.brand} NO esta disponible ")
       
@@ -35,12 +35,58 @@ class Vehicle:
 class Car(Vehicle):
   def start_engine(self):
     if not self.is_available:
-      return print(f"El motor del coche {self.brand} esta en marcha")
+        return print(f"El motor del coche {self.brand} esta en marcha")
     else:
-      return print(f"El coche {self.brand} no esta disponible")
+        return print(f"El coche {self.brand} no esta disponible")
     
   def stop_engine(self):
     if self.is_available:
        return f"El motor del coche {self.brand} se ha detenido"
     else:
       return f"El coche {self.brand} no esta disponible"
+
+class Bike(Vehicle):
+  def start_engine(self):
+    if not self.is_available:
+      return f"La bicicleta {self.brand} esta en marcha"
+    else:
+      return f"La bicicleta {self.brand} no esta disopnible"
+  
+  def stop_engine(self):
+    if self.is_available:
+      return f"La bicicleta {self.brand} se ha detenido"
+    else:
+      return f"La bicicleta {self.brand} no esta disponible"
+
+class Truck(Vehicle):
+  def start_engine(self):
+    if not self.is_available:
+      return f"El motor del camion {self.brand} esta en marcha"
+    else:
+      return f"El camion {self.brand} no esta disponible"
+    
+  def stop_engine(self):
+    if self.is_available:
+      return f"El motor del camion {self.brand} se ha detenido"
+    else:
+      return f"El camion  {self.brand} no esta disponible"
+    
+class Customer():
+  def __init__(self, name):
+    self.name = name
+    self.purchased_vehicles = []
+    
+  def buy_vehicle(self, vehicle: Vehicle): #Le pasamos la clase Padre / Superclase
+    if vehicle.check_available():
+      vehicle.sell() #Llamamos el metodo de la clase padre
+      self.purchased_vehicles.append(vehicle)
+    else:
+      print(f"Lo siento el {vehicle.brand} no esta disponible")
+      
+  def inquire_vehicle(self, vehicle: Vehicle): #Funcion para preguntar por los vehiculos
+    if vehicle.check_available():
+      availability = "Disponible"
+    else:
+      availability = "No Disponible"
+      
+    print(f"El vehiculo {vehicle.brand} esta como {availability}")
