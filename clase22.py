@@ -1,27 +1,42 @@
-#Funcion SUPER
-#Nos permite acceder y llamar a metodos de la SUPER CLASE pero desde la SUBCLASE,facilita la extension de las FUNCIONALIDADES
-#Repasando clases anteriores, ATRIBUTOS .- Son las caracteristicas que tiene la clase, Metodos .- Son acciones o cosas que sabe hacer la clase
+# La función SUPER
+# La función super() en Python se utiliza para acceder a métodos y atributos de una superclase (o clase padre) desde una subclase (o clase hija).
+# Esto es útil para extender las funcionalidades de la clase padre en la subclase sin tener que reescribir el código de la superclase.
+# Es especialmente útil cuando queremos mantener y reutilizar el comportamiento de la superclase en la subclase.
+
+# Repasando conceptos:
+# - ATRIBUTOS: Son las características o propiedades de un objeto que se definen en una clase.
+# - MÉTODOS: Son las acciones o comportamientos que un objeto puede realizar, definidos dentro de una clase.
 
 class Person:
-  def __init__(self, name, age):#Constructor
-    self.name = name #Atributo
-    self.age = age #Atributo
+    def __init__(self, name, age):  # Constructor
+        # Atributos que definen las características de una persona
+        self.name = name  # Atributo 'name'
+        self.age = age    # Atributo 'age'
     
-  def greet(self): #Metodo
-    print(f"Hello I am {self.name}")
+    def greet(self):  # Método
+        # Método que imprime un saludo usando el nombre del objeto Person
+        print(f"Hello, I am {self.name}")
     
-class Student(Person):
-  def __init__(self, name, age, student_id):#Debemos de pedir los mismos atributos que se heredan de la SUPER CLASE mas los que quiera agregar en la subclase
-   super().__init__(name, age) #Llamando al constructor de la SUPER CLASE y sus atributos
-   self.student_id = student_id #Este atributo solo es de la SUBCLASE
-  
-  def greet_student(self):
-    super().greet() #Llamamos al metodo greet de la SUPERCLASE
-    print(f"Hello, my student ID is {self.student_id}")
+class Student(Person):  # Student hereda de Person
+    def __init__(self, name, age, student_id):  
+        # El constructor de la subclase Student necesita recibir los mismos atributos
+        # de la superclase Person más los atributos adicionales de la subclase.
+        
+        # Llamada al constructor de la superclase para inicializar los atributos heredados (name y age)
+        super().__init__(name, age)  
+        
+        # Atributo adicional propio de la subclase Student
+        self.student_id = student_id  
     
-#Creando las instancias de estudiantes pero haciendolo desde la SUBCLASE
+    def greet_student(self):  
+        # Llamada al método greet de la superclase Person usando super()
+        super().greet()
+        
+        # Extensión del comportamiento del método greet para incluir el ID de estudiante
+        print(f"Hello, my student ID is {self.student_id}")
+
+# Creación de una instancia de la subclase Student
 student1 = Student("Sebas", 9, "chevy15")
 
-#Estudiante Saluda
+# El estudiante saluda usando el método greet_student de la subclase
 student1.greet_student()
-
