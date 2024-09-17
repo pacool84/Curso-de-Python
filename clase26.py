@@ -41,3 +41,21 @@ with open('products.json', mode='w') as file:
     # Usamos json.dump() para escribir los datos actualizados en el archivo.
     # El parámetro 'indent = 4' se usa para formatear el archivo con una sangría de 4 espacios, mejorando la legibilidad.
     json.dump(products, file, indent=4)  # Sobrescribimos el archivo con la lista actualizada de productos.
+    
+# 5. Eliminar un producto del archivo JSON:
+# Definimos el nombre del producto que queremos eliminar.
+product_to_delete = 'ipad'
+
+# a. Creamos una nueva lista 'productos_actualizados' sin el producto que queremos eliminar.
+productos_actualizados = []
+
+for producto in products:
+    if producto['name'] != product_to_delete:
+        productos_actualizados.append(producto)  # Solo añadimos los productos cuyo nombre no coincide con 'product_to_delete'.
+
+# b. Reemplazamos la lista original con la lista filtrada.
+products = productos_actualizados
+
+# c. Escribimos la lista actualizada sin el producto eliminado en el archivo JSON.
+with open('products.json', mode='w') as file:
+    json.dump(products, file, indent=4)  # Guardamos la lista actualizada sin el producto eliminado.
